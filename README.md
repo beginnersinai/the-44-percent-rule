@@ -12,15 +12,87 @@ This plugin automates that "showing" — it scans your workspace, maps where AI 
 
 ---
 
+## Quick Install (5 Minutes)
+
+The fastest way to install is from the **Beginners in AI marketplace**.
+
+### Step 1 — Add the marketplace (one time, ~30 seconds)
+
+In Claude Code, type:
+
+```
+/plugin marketplace add beginnersinai/claude-skills-marketplace
+```
+
+This registers the marketplace catalog. No plugins are installed yet — you're just telling Claude Code where to find them.
+
+### Step 2 — Install The 44% Rule
+
+```
+/plugin install the-44-percent-rule@beginnersinai-skills
+```
+
+Claude Code downloads the plugin and installs it. Done.
+
+### Step 3 — Turn on auto-updates (HIGHLY RECOMMENDED — see below)
+
+By default, third-party marketplaces have auto-updates **disabled**. That means new versions of the plugin won't reach you automatically. To enable auto-updates so you always have the latest version:
+
+1. Type `/plugin` to open the plugin manager
+2. Press **Tab** to navigate to the **Marketplaces** tab
+3. Select **beginnersinai-skills** from the list
+4. Choose **Enable auto-update**
+
+From now on, every time you start Claude Code, it will check for new versions of The 44% Rule (and any other plugins from this marketplace) and pull them automatically. You'll see a notification if anything updates, and you just run `/reload-plugins` to activate the new version.
+
+### Step 4 — Run your first audit
+
+In any project directory, type:
+
+```
+/the-44-percent-rule:map
+```
+
+That's it. The plugin walks you through a 5-question discovery, then maps your workspace across all 10 functions and generates a prioritized action plan in under 10 minutes.
+
+---
+
+## Alternative Install Methods
+
+If you don't want to use the marketplace, two other paths:
+
+### A. Direct ZIP install
+
+1. Download `the-44-percent-rule.zip` from [Releases](https://github.com/beginnersinai/the-44-percent-rule/releases) (or click **Code → Download ZIP** above)
+2. In **Claude Cowork**: Customize → click **+** next to "Personal plugins" → drag the ZIP in
+3. Type `/the-44-percent-rule:map` to start
+
+ZIP installs do NOT receive auto-updates. You'll need to manually re-download and reinstall when new versions ship.
+
+### B. Local development install
+
+For testing or modifying the plugin yourself:
+
+```
+git clone https://github.com/beginnersinai/the-44-percent-rule.git
+claude --plugin-dir ./the-44-percent-rule
+```
+
+Local-dir installs are only active for that Claude Code session.
+
+---
+
 ## What's In the Plugin
 
 ### 3 Slash Commands
 
 | Command | What It Does |
 |---------|-------------|
-| `/map` | Full workspace scan. Discovers all your projects, maps AI usage across 10 functions for each, identifies gaps, scores opportunities, generates a complete AI Map report. |
-| `/map-venture [name]` | Focused audit of a single project or business. Same 10-function analysis but deep on one venture. |
-| `/map-score` | Scores and ranks all opportunities found by `/map`. Prioritizes by revenue impact, capital reduction, and ease of implementation. |
+| `/the-44-percent-rule:map` | Full workspace scan. Discovers all your projects, maps AI usage across 10 functions for each, identifies gaps, scores opportunities, generates a complete AI Map report. |
+| `/the-44-percent-rule:map-venture [name]` | Focused audit of a single project or business. Same 10-function analysis but deep on one venture. |
+| `/the-44-percent-rule:map-score` | Scores and ranks all opportunities found by `/map`. Prioritizes by revenue impact, capital reduction, and ease of implementation. |
+
+> **Note on namespacing:** Plugin commands in Claude Code are always prefixed with the plugin name to prevent conflicts between plugins. So `/map` becomes `/the-44-percent-rule:map`. After typing `/` you'll see autocomplete suggestions.
 
 ### 3 Specialized AI Agents
 
@@ -61,26 +133,17 @@ If your AI usage is concentrated only in #8 (Content) and maybe #3 (Marketing), 
 
 ---
 
-## How to Install
-
-1. Download the ZIP file from [Releases](https://github.com/beginnersinai/the-44-percent-rule/releases) or click **Code → Download ZIP** above
-2. In **Claude Cowork**: Go to Customize → click the **+** next to "Personal plugins" → drag in the ZIP file
-3. In **Claude Code** (terminal): The plugin syncs automatically from Cowork, or run `/plugins add-local` with the extracted folder path
-4. Type `/map` to run your first audit — no configuration needed
-
----
-
 ## How to Use It
 
 ### Quick Start
 1. Open Claude Code in any project directory
-2. Type `/map`
+2. Type `/the-44-percent-rule:map`
 3. Wait for the scan to complete (takes 2-5 minutes depending on workspace size)
 4. Review the generated `AI-MAP-[date].md` report
-5. Type `/map-score` to get a prioritized action plan
+5. Type `/the-44-percent-rule:map-score` to get a prioritized action plan
 
 ### For a Single Project
-1. Type `/map-venture MyProject`
+1. Type `/the-44-percent-rule:map-venture MyProject`
 2. Get a focused 10-function analysis with specific recommendations
 
 ### The Scoring System
@@ -92,6 +155,63 @@ Each opportunity is scored on:
 **Composite Score** = (Revenue × 2) + Capital + Ease. Maximum: 20 points.
 
 Opportunities scoring 15+ with Ease = 5 are flagged as **"Press Send"** — infrastructure exists, nobody activated it.
+
+---
+
+## Keeping Up to Date
+
+This is the part most people miss. By default, Claude Code does NOT automatically update plugins from third-party marketplaces. You have to opt in.
+
+### The auto-update toggle (do this once)
+
+1. Open Claude Code
+2. Type `/plugin`
+3. Press **Tab** until you see the **Marketplaces** tab
+4. Select **beginnersinai-skills** from the list
+5. Choose **Enable auto-update**
+
+From now on, every time Claude Code starts, it will:
+1. Check the marketplace for new plugin versions
+2. Pull any updates automatically
+3. Show you a notification if anything was updated
+4. Wait for you to run `/reload-plugins` to activate the changes
+
+You'll never have to think about updating again.
+
+### Manual update (if you skipped the auto-update toggle)
+
+If you didn't enable auto-update, you can manually pull the latest version anytime:
+
+```
+/plugin marketplace update beginnersinai-skills
+/plugin update the-44-percent-rule@beginnersinai-skills
+/reload-plugins
+```
+
+The first command refreshes the marketplace catalog. The second command pulls any new version of this specific plugin. The third command activates the new version without restarting Claude Code.
+
+### Checking your version
+
+To see what version of The 44% Rule you currently have:
+
+1. Type `/plugin` to open the plugin manager
+2. Press **Tab** to the **Installed** tab
+3. Find **The 44% Rule** in the list
+4. The version number is displayed alongside the name
+
+If you want the absolute latest, compare against the version at https://github.com/beginnersinai/the-44-percent-rule/blob/main/.claude-plugin/plugin.json
+
+---
+
+## Uninstalling
+
+If you ever want to remove the plugin:
+
+```
+/plugin uninstall the-44-percent-rule@beginnersinai-skills
+```
+
+Or via the UI: `/plugin` → **Installed** tab → select **The 44% Rule** → **Uninstall**.
 
 ---
 
@@ -120,9 +240,20 @@ Opportunities scoring 15+ with Ease = 5 are flagged as **"Press Send"** — infr
 - **Plugin landing page**: https://beginnersinai.org/get-the-44-percent-rule/
 - **Full article walkthrough**: https://beginnersinai.org/the-44-percent-rule/
 - **The research paper, explained for beginners**: https://beginnersinai.org/mapping-ai-research-study/
+- **Quick Start Guide**: See `QUICKSTART.md` in this repo
 
 ---
 
-## Naming Note
+## Version History & Renames
 
-This plugin was originally released on April 5, 2026 as **"The AI Mapping Plugin"**. On April 6 we renamed it to **"The 44% Rule"** to make the value proposition clearer at a glance. The plugin's functionality, code, and structure are unchanged — only the name and branding. Existing installs continue to work; new installs use the new name. The old GitHub URL (`beginnersinai/ai-mapping-plugin`) auto-redirects to the new one (`beginnersinai/44-percent-rule`).
+**v1.1.0 (April 6, 2026)** — Plugin renamed from "AI Mapping Plugin" to "The 44% Rule" to make the value proposition clearer at a glance. The internal package name also changed from `ai-mapping` to `the-44-percent-rule`. Skill commands are now namespaced as `/the-44-percent-rule:map` etc.
+
+If you had **v1.0.0 installed under the old name `ai-mapping`**, Claude Code treats this as a different plugin and will NOT auto-migrate. To upgrade:
+
+1. Uninstall the old plugin: `/plugin uninstall ai-mapping@beginnersinai-skills`
+2. Install the new one: `/plugin install the-44-percent-rule@beginnersinai-skills`
+3. Enable auto-update on the marketplace (see "Keeping Up to Date" above) so future updates land automatically
+
+Going forward, the plugin will receive standard version-bump updates (1.1.0 → 1.1.1 → 1.2.0 → etc.) under the new name. As long as you have auto-update enabled, you won't need to think about updates.
+
+**v1.0.0 (April 5, 2026)** — Initial release as "The AI Mapping Plugin" (`ai-mapping`).
