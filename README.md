@@ -63,7 +63,7 @@ If your AI usage is concentrated only in #8 (Content) and maybe #3 (Marketing), 
 
 ## How to Install
 
-1. Download the ZIP file from [Releases](https://github.com/beginnersinai/44-percent-rule/releases) or click **Code → Download ZIP** above
+1. Download the ZIP file from [Releases](https://github.com/beginnersinai/the-44-percent-rule/releases) or click **Code → Download ZIP** above
 2. In **Claude Cowork**: Go to Customize → click the **+** next to "Personal plugins" → drag in the ZIP file
 3. In **Claude Code** (terminal): The plugin syncs automatically from Cowork, or run `/plugins add-local` with the extracted folder path
 4. Type `/map` to run your first audit — no configuration needed
