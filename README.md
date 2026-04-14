@@ -238,7 +238,7 @@ Or via the UI: `/plugin` → **Installed** tab → select **The 44% Rule** → *
 ## Read More
 
 - **Plugin landing page**: https://beginnersinai.org/get-the-44-percent-rule/
-- **Full article walkthrough**: https://beginnersinai.org/the-44-percent-rule/
+- **Full video walkthrough**: https://beginnersinai.org/the-44-percent-rule/
 - **The research paper, explained for beginners**: https://beginnersinai.org/mapping-ai-research-study/
 - **Quick Start Guide**: See `QUICKSTART.md` in this repo
 
